@@ -16,9 +16,9 @@
             <el-tag>实验控制</el-tag>
           </div>
           <div>
-            <el-button type="primary" class="leftButton">启动实验</el-button>
-            <el-button type="primary" class="leftButton">停止实验</el-button>
-            <el-button type="primary" class="leftButton">退出实验</el-button>
+            <el-button @click="changeColor(1)" :disabled="disabled1" type="primary" class="leftButton">启动实验</el-button>
+            <el-button @click="changeColor(2)" :disabled="disabled2" type="primary" class="leftButton">停止实验</el-button>
+            <el-button @click="changeColor(3)" :disabled="disabled3" type="primary" class="leftButton">退出实验</el-button>
           </div>
         </el-card>
       </el-aside>
@@ -128,6 +128,9 @@ export default {
   },
   data() {
     return {
+      disabled1: false,
+      disabled2: false,
+      disabled3: false,
       chart1Little: { height: 300, width: 480 },
       chart1Big: { height: 800, width: 1600 },
       options1: {
@@ -1215,6 +1218,25 @@ export default {
   methods: {
       bigChart () {
           this.chartVisible = true
+      },
+      changeColor ( flag ) {
+          switch (flag) {
+            case 1 :
+              this.disabled1 = true
+              this.disabled2 = false
+              this.disabled3 = false
+              break
+            case 2 :
+              this.disabled1 = false
+              this.disabled2 = true
+              this.disabled3 = false
+              break
+            case 3 :
+              this.disabled1 = false
+              this.disabled2 = false
+              this.disabled3 = true
+              break
+          }
       }
   }
 }
@@ -1277,4 +1299,8 @@ export default {
 }
 
 /*----------------------------*/
+.el-button--primary.is-disabled {
+  background: gray;
+  border-color: gray;
+}
 </style>

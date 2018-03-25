@@ -23,14 +23,14 @@
 </template>
 
 <script>
-import firstPage from '../components/firstPage.vue'
-import secondPage from '../components/secondPage.vue'
+import firstPage from '../components/firstPage1.vue'
+import secondPage from '../components/secondPage1.vue'
 export default {
   name: 'HelloWorld',
   components: {firstPage, secondPage},
   data () {
     return {
-      msg: '双容水箱未建模动态控制实验',
+      msg: '双容水箱仿真模型界面',
       firstDisabled: false,
       secondDisabled: true
     }
@@ -38,13 +38,13 @@ export default {
   methods: {
     goFirstPage () {
       // console.log('1')
-      this.msg = '双容水箱未建模动态控制实验'
+      this.msg = '双容水箱仿真模型界面'
       this.firstDisabled = false
       this.secondDisabled = true
     },
     goSecondPage () {
       // console.log('2')
-      this.msg = '递推最小二乘辨识实验'
+      this.msg = '双容水箱实验系统监控界面'
       this.firstDisabled = true
       this.secondDisabled = false
     }
